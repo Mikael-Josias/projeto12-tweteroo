@@ -3,9 +3,14 @@ import cors from "cors";
 
 const server = express();
 server.use(cors());
+server.use(express.json());
+
+const users = [];
 
 server.post("/sign-up", (req, res) => {
-
+    const data = req.body;
+    users.push(data);
+    res.send("OK");
 });
 
 server.post("/tweets", (req, res) =>{
